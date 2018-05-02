@@ -1,0 +1,4 @@
+图片压缩工具：
+1、tinyPNG，需要收费，免费的话每天只能压缩500张。https://tinypng.com/
+2、pngquant，开源的png压缩工具，可以直接安装到linux服务器上面。http://pngquant.org
+3、imagemagick，对png的压缩不尽人意，其他格式支持不错。
