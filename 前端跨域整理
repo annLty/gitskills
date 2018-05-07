@@ -1,1 +1,8 @@
-原文链接：https://segmentfault.com/a/1190000007326671
+1、跨域知识链接：https://segmentfault.com/a/1190000007326671
+2、用XMLHttpRequest发起POST请求的话，浏览器为了安全起见，会先发送一个 options 请求，确保请求发送是安全的，
+   一般 POST DELETE PUT 等请求都会修改服务器资源，所以浏览器会先发一个请求，问问服务器是否会正确（允许）请求。
+   出现 OPTIONS 的情况一般为：
+       a、非 GET | POST 请求
+       b、POST 请求的 content-type 不是常规的那三个
+       c、POST 请求的 payload 为 text/xml
+       d、跨域，浏览器也会为了试探服务器是否会接受请求，先发送一个 options 请求。即便是服务器允许程序跨域访问，若不支持 options 请求，请求也会死掉。
