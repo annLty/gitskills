@@ -1,3 +1,4 @@
+一、给元素插入值
 1、innerHtml是标签内的文本,输入输出到该DOM内部纯HTML代码(流);
 (获得td、div等html元素时候,它们是没有value或是text属性,只能用innerHtml)
 document.getElementById(id).innerHTML=new HTML;
@@ -9,5 +10,26 @@ document.getElementById(id).innerHTML=new HTML;
 (Text、Hidden)默认值;
 (File、Password)
 (注: Text控件用value有效)
+document.getElementById(id).value = 120;
 
-3、html和text都是jquery/zepto的方法，只对jq对象有用
+3、html和text、val都是jquery/zepto的方法，只对jq对象有用;
+
+二、输入内容发生改变的事件
+1、onchange事件在内容发生改变（两次内容有可能还是相等的）且元素失去焦点后触发，作用于单选框、复选框、输入框、<keygen> 和 <select>。
+   用法：
+   <input type="text" placeholder="请输入数字" onchange ="changed()">
+   或  document.getElementById("inputBox").onchange = function() {....}
+   
+2、oninput 事件是 IE 之外的大多数浏览器支持的事件，适用于input或者textarea元素只在 value 改变时触发，要通过 addEventListener() 来注册，实时的，
+   即每增加或删除一个字符就会触发，然而通过 js 改变 value 时，却不会触发。
+   用法：
+   <input type="text" placeholder="请输入数字" oninput ="changed()">
+   或   document.getElementById("inputBox").oninput = function() {....}
+   
+   或   document.getElementById("myInput").addEventListener("input", myFunction);
+        function myFunction() {
+            alert("input 输入框值已发生变化。");
+        }
+
+3、onpropertychange事件是任何属性改变都会触发，即每增加或删除一个字符就会触发，通过 js 改变也会触发该事件，但是该事件 IE 专有。
+   当 input 设置为 disable=true后，onpropertychange 不会触发。
