@@ -1,0 +1,11 @@
+1、innerHtml是标签内的文本,输入输出到该DOM内部纯HTML代码(流);
+(获得td、div等html元素时候,它们是没有value或是text属性,只能用innerHtml)
+
+2、value是表单元素特有的属性,输入输出的是转义文本(字符串);
+(Button、CheckBox、Radio)随表单一起发送的值;
+(Reset、Submit)标签;
+(Text、Hidden)默认值;
+(File、Password)
+(注: Text控件用value有效)
+
+3、html和text都是jquery/zepto的方法，只对jq对象有用
