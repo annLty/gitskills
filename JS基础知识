@@ -33,3 +33,13 @@ document.getElementById(id).value = 120;
 
 3、onpropertychange事件是任何属性改变都会触发，即每增加或删除一个字符就会触发，通过 js 改变也会触发该事件，但是该事件 IE 专有。
    当 input 设置为 disable=true后，onpropertychange 不会触发。
+
+三、toString与toLocaleString的区别：
+1、数字转换成字符串的时候，当数字为3位以上时，toLocaleString会自动用","进行三位分割。
+
+2、转换标准时间格式时：
+	var sd=new Date()；
+	sd：Wed Feb 15 2017 11:21:31 GMT+0800 (CST)
+	sd.toLocaleString()  ---"2017/2/15 上午11:21:31"
+	sd.toString()  ---"Wed Feb 15 2017 11:21:31 GMT+0800 (CST)"
+   
