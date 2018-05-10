@@ -79,10 +79,11 @@ document.getElementById(id).value = 120;
        document.write(Number(test5)+ "<br>");    NaN
        document.write(Number("0000011"));        11
        
-3、parseFloat()将字符串转换为浮点数。
+3、parseFloat()将字符串转换为浮点数。字符串中第一个小数点是有效的。
   参数允许开头和结尾的空格，如果字符串的第一个字符不能被转换为数字，那么 parseFloat() 会返回 NaN。
   例：document.write(parseFloat("10") + "<br>");     10
      document.write(parseFloat("10.33") + "<br>");   10.33
+     document.write(parseFloat("10.33.44") + "<br>");   10.33
      document.write(parseFloat("34 45 66") + "<br>");  34
      document.write(parseFloat(" 60 ") + "<br>");    60
      document.write(parseFloat("40 years") + "<br>");   40
