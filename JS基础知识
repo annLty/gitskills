@@ -43,3 +43,58 @@ document.getElementById(id).value = 120;
 	sd.toLocaleString()  ---"2017/2/15 上午11:21:31"
 	sd.toString()  ---"Wed Feb 15 2017 11:21:31 GMT+0800 (CST)"
    
+
+四、parseInt()、Number()、parseFloat()、String()的区别
+1、parseInt()解析字符串并返回整数，语法：parseInt(string,radix); string必须。radix为基数，选填，该值介于 2 ~ 36 之间。
+   string允许开头和结尾有空格，只有字符串中的第一个数字会被返回，如果字符串的第一个字符不能被转换为数字，那么 parseInt() 会返回 NaN。
+   如果 string 以 "0x" 开头，parseInt() 会把 string 的其余部分解析为十六进制的整数。
+   在字符串以"0"为开始时旧的浏览器默认使用八进制基数。ECMAScript 5，默认的是十进制的基数。
+   例：document.write(parseInt("10.33") + "<br>");      10
+      document.write(parseInt("34 45 66") + "<br>");    34
+      document.write(parseInt("He was 40") + "<br>");   NaN
+      document.write(parseInt("10",10)+ "<br>");       10
+      document.write(parseInt("010")+ "<br>");         10
+      document.write(parseInt("10",8)+ "<br>");        8
+      document.write(parseInt("0x10")+ "<br>");        16
+      document.write(parseInt("10",16)+ "<br>");       16
+   
+2、Number()将字符串解析成数字（可以是整数或浮点数），只能解析成10进制，没有基数。语法：Number(object); object可选，如果没有提供参数，则返回0。
+   如果参数是 Date 对象，Number() 返回从 1970 年 1 月 1 日至今的毫秒数。
+   如果参数是字符串：
+    a.  如果字符串中只包含数字时，将其转换为十进制数值，忽略前导0
+    b. 如果字符串中包含有效浮点格式，如“1.1”，将其转换为对应的浮点数字，忽略前导0
+    c. 如果字符串中包含有效的十六进制格式，如“0xf”，将其转换为相同大小的十进制数值
+    d. 如果字符串为空，将其转换为0
+    e. 如果字符串中包含除上述格式之外的字符，则将其转换为NaN
+   例：var test1= new Boolean(true);
+       var test2= new Boolean(false);
+       var test3= new Date();
+       var test4= new String("999");
+       var test5= new String("999 888");
+
+       document.write(Number(test1)+ "<br>");    1
+       document.write(Number(test2)+ "<br>");    0
+       document.write(Number(test3)+ "<br>");    1525914580239
+       document.write(Number(test4)+ "<br>");    999
+       document.write(Number(test5)+ "<br>");    NaN
+       document.write(Number("0000011"));        11
+       
+3、parseFloat()将字符串转换为浮点数。
+  参数允许开头和结尾的空格，如果字符串的第一个字符不能被转换为数字，那么 parseFloat() 会返回 NaN。
+  例：document.write(parseFloat("10") + "<br>");     10
+     document.write(parseFloat("10.33") + "<br>");   10.33
+     document.write(parseFloat("34 45 66") + "<br>");  34
+     document.write(parseFloat(" 60 ") + "<br>");    60
+     document.write(parseFloat("40 years") + "<br>");   40
+     document.write(parseFloat("He was 40") + "<br>");  NaN
+
+4、String()将对象值转换为字符串。语法：String(object);
+   与字符串的toString()方法值一样。 语法：number.toString(radix)；radix可选，默认为10进制。
+   例：var test1 = new Boolean(1);             document.write(String(test1)+ "<br>");       true
+       var test2 = new Boolean(0);            document.write(String(test2)+ "<br>");       false
+       var test3 = new Boolean(true);         document.write(String(test3)+ "<br>");       true
+       var test4 = new Boolean(false);        document.write(String(test4)+ "<br>");       false
+       var test5 = new Date();                document.write(String(test5)+ "<br>");       Thu May 10 2018 09:35:50 GMT+0800
+       var test6 = new String("999 888");     document.write(String(test6)+ "<br>");       999 888
+       var test7 = 12345;                     document.write(String(test7)+ "<br>");       12345
+
